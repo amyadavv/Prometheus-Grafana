@@ -334,3 +334,9 @@ Day 7:
 ---
 
 Use this document as your daily revision sheet before interviews.
+
+
+For Monitoring there are two things: 
+
+1. Metrics - To setup metrics we use prometheus. To setup we run prometheus client inside our server. This will collect our metrics. For this we have to install "prom-client". Prometheus is a monitoring tool for metrics
+2. Log collection
