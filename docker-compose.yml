@@ -1,13 +1,34 @@
-version: "3"
-
 services:
   prom-server:
     image: prom/prometheus
+    # Stable container name makes troubleshooting and log inspection easier.
+    container_name: prometheus
     ports:
+      # Expose Prometheus UI/API on localhost:9090.
       - 9090:9090
     volumes:
+      # Mount local scrape config into Prometheus default config path.
       - ./prometheus-config.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      # Start node-exporter before Prometheus so node metrics are available quickly.
+      - node-exporter
 
-# To run this docker file use - docker compose up
+  # Run Grafana inside the same compose stack so all monitoring services are managed together.
+  grafana:
+    image: grafana/grafana-oss
+    # Stable container name avoids random compose-generated names.
+    container_name: grafana
+    ports:
+      # Expose Grafana UI on localhost:3000.
+      - 3000:3000
 
-# Now to run the docker for grafana use this - docker run -d -p 3000:3000 --name=grafana grafana/grafana-oss
+  # Node exporter provides host/system metrics (CPU, memory, filesystem) used by most imported dashboards.
+  node-exporter:
+    image: prom/node-exporter:latest
+    # Stable container name helps with debugging and container lookups.
+    container_name: node-exporter
+    ports:
+      # Expose node-exporter metrics endpoint on localhost:9100.
+      - 9100:9100
+
+# Run the stack with: docker compose up -d
