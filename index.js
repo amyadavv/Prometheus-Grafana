@@ -27,7 +27,7 @@ app.get("/slow", async (req, res) => {
 app.get("/metrics", async (req, res) => {
     res.setHeader('Content-Type', client.register.contentType);
     const metrics = await client.register.metrics();
-    res.json(metrics);
+    res.end(metrics);
 })
 
 app.listen(PORT, () => {

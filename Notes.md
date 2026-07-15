@@ -339,4 +339,4 @@ Use this document as your daily revision sheet before interviews.
 For Monitoring there are two things: 
 
 1. Metrics - To setup metrics we use prometheus. To setup we run prometheus client inside our server. This will collect our metrics. For this we have to install "prom-client". Prometheus is a monitoring tool for metrics. So now the /metrics will show the data but the data format is difficult to understand. So now we have to run the prometheus server on PORT: 9090. So this server will scrape the /metrics endpoint. So you will think how it scrape the metrics when we only write targets: ["192.168.1.216:8000"], because prometheus automatically write /metrics from its own. 
-2. Log collection
+2. Log collection - For this we use grafana, we need to connect prometheus to grafana, also we can connect various stack eg - mongodb, postgresql. So first click on - Add your data source, then click on prometheus, then add the prometheus url so our prometheus server is running on : localhost:9090, but we cannot write localhost we have to use our IP address which is - 198.162.1x.xx: 9090. Then we have to create a new dashboard.
