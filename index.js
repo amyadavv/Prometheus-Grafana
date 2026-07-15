@@ -4,10 +4,12 @@ const { doSomeHeavyTask } = require("./util");
 const responseTime = require("response-time");
 const { createLogger, transports, log } = require("winston");
 const LokiTransport = require("winston-loki");
+
+
 const options = {
     transports: [
         new LokiTransport({
-            labels:{
+            labels: {
                 appName: 'express'
             },
             host: "http://127.0.0.1:3100"

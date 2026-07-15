@@ -1,12 +1,5 @@
 # Prometheus + Grafana Notes 
 
-These notes are written in simple language so you can:
-- Understand core monitoring concepts fast
-- Explain them clearly in interviews
-- Build confidence for DevOps/SRE/Cloud/Backend job roles
-
----
-
 ## 1) Why Monitoring Matters
 
 In real jobs, systems fail for many reasons:
