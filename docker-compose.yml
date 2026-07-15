@@ -11,3 +11,6 @@ services:
 # To run this docker file use - docker compose up
 
 # Now to run the docker for grafana use this - docker run -d -p 3000:3000 --name=grafana grafana/grafana-oss
+
+
+# docker run -d --name=loki -p 3100:3100 grafana/loki
